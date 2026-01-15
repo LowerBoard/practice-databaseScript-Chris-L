@@ -13,6 +13,7 @@ create table restaurant (
 
 create table menu (
   id int primary key not null auto_increment,
+  restaurant_id int not null references restaurant(id),
   unit_number int,
   menu_item_one varchar(40),
   menu_item_two varchar(40),
@@ -24,6 +25,7 @@ create table menu (
 
 create table inventory (
   item_id int primary key not null auto_increment,
+  restaurant_id int not null references restaurant(id),
   unit_number int,
   item_description varchar(50),
   item_one_quantity int,
@@ -33,6 +35,7 @@ create table inventory (
 
 create table food_order (
   order_id int primary key not null auto_increment,
+  restaurant_id int not null references restaurant(id),
   item_ordered varchar(80),
   order_total double,
   reward_points_gained double,
@@ -46,6 +49,7 @@ create table food_order (
 
 create table customer (
   id int primary key not null auto_increment,
+  restaurant_id int not null references restaurant(id),
   first_name varchar(100),
   last_name varchar(100),
   email varchar(100),
