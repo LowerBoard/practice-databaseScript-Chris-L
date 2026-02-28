@@ -1,5 +1,7 @@
 START TRANSACTION;
 
+DROP TABLE IF EXISTS restaurant, menu, inventory, food_order, customer;
+
 create table restaurant (
   id int primary key not null auto_increment,
   unit_number int,
@@ -57,5 +59,5 @@ create table customer (
   is_enrolled boolean
 );
 
-ROLLBACK;
+COMMIT;
 
